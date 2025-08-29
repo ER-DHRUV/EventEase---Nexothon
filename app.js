@@ -5,12 +5,12 @@ const bcrypt = require("bcrypt");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const app = express();
-const { isLoggedIn } = require("./midleware.js");
-const User = require(".//models/user");
-const Event = require(".//models/event");
-const e = require("express");
-const eventRoute = require("./routes/event");
-const userRoute = require("./routes/user");
+// const { isLoggedIn } = require("./midleware.js");
+// const User = require(".//models/user");
+// const Event = require(".//models/event");
+// const e = require("express");
+// const eventRoute = require("./routes/event");
+// const userRoute = require("./routes/user");
 const ejsMate = require('ejs-mate');
 app.engine('ejs', ejsMate);
 const methodOverride = require('method-override');
@@ -27,7 +27,7 @@ app.use(cookieParser());
 const mongoose = require("mongoose");
 // ...existing code...
 mongoose
-  .connect("mongodb://localhost:27017/createuser", {})
+  .connect("mongodb://localhost:27017/EventEase", {})
   .then(() => {
     console.log("MongoDB connected");
   })

@@ -20,7 +20,11 @@ const userSchema = new mongoose.Schema({
         enum:['public','organizer'],
         default:'public'
     },
-    
+    modileNo:{
+        type:String,
+        required:true
+    }
+
 });
 
 module.exports = mongoose.model("User", userSchema);
