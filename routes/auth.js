@@ -58,11 +58,11 @@ router.route('/login')
   let { email, password ,role} = req.body;
   let existuser = await User.findOne({ email: email });
   if (!existuser) {
-    return res.render("login", { error1: "User doesn't Exist. Signup First." });
+    return res.render("auth/login", { error1: "User doesn't Exist. Signup First." });
     // return res.send("User not found");
   }
   if (role!=existuser.category) {
-    return res.render("login", { error1: "User not found" });
+    return res.render("auth/login", { error1: "User not found" });
     // return res.send("User not found");
   }
   bcrypt.compare(password, existuser.password, (err, result) => {
@@ -71,7 +71,7 @@ router.route('/login')
       res.cookie("token", token);
       return role==='organizer'?res.redirect("/organizer"):res.redirect("/public");
     } else {
-      return res.render("login", { error2: "Email or Password is wrong." });
+      return res.render("auth/login", { error2: "Email or Password is wrong." });
     }
   });
 });
