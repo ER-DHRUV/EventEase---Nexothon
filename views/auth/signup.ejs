@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/public/css/auth/signup.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="form-title">Create Account</h1>
+
+        <div class="user-type-buttons">
+            <button type="button" class="btn public active" id="public-btn">Public</button>
+            <button type="button" class="btn organizer" id="organizer-btn">Organizer</button>
+        </div>
+        <input type="hidden" name="userType" id="userType" value="public" />
+
+        <form action="/signup" method="POST">
+            <input type="hidden" id="role" name="role" />
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required />
+            </div>
+            <input type="submit" id="submit" value="Create Account" />
+        </form>
+        <div class="auth-link">
+            Already have an account? <a href="/login">Sign in here</a>
+        </div>
+    </div>
+    <script src="/public/js/auth/login.js">
+
+
+    </script>
+</body>
+
+</html>
