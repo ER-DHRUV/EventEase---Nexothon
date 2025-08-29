@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
 
-    <link rel="stylesheet" href="/public/css/auth/login.css">
+    <link rel="stylesheet" href="/css/auth/login.css">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
             <button type="button" class="btn public active" id="public-btn">Public</button>
             <button type="button" class="btn organizer" id="organizer-btn">Organizer</button>
         </div>
-        <!-- <input type="hidden" name="userType" id="userType" value="public" /> -->
+        <input type="hidden" name="userType" id="userType" value="public" />
 
 
         <form action="/login" method="POST">
@@ -47,7 +47,8 @@
             </p>
             <% } %>
 
-               <script src="/public/js/auth/login.js"></script>
+               <script src="/js/auth/login.js"></script>
+               
 </body>
 
 </html>
