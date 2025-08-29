@@ -1,3 +1,20 @@
+:root {
+    --primary-color: #4a90e2;         /* Medium blue for buttons and main actions */
+    --primary-hover: #357ABD;         /* Darker blue for hover state */
+    --primary-active: #2c5aa0;        /* Even darker blue for active state */
+    --secondary-color: #0b1e47;       /* Deep navy blue for secondary emphasis */
+    --background-color: #e6f0ff;      /* Light blueish background */
+    --container-background: #ffffff;  /* White container for contrast */
+    --border-color: #d0e3ff;          /* Light border blue */
+    --input-border-color: #aac8ff;    /* Subtle blue border for inputs */
+    --input-focus-border: #1d65c1;    /* Strong blue for focused inputs */
+    --text-color: #2f3e5c;            /* Dark desaturated blue for general text */
+    --label-color: #2f3e5c;           /* Same as text color */
+    --link-color: #1d65c1;            /* Standard blue link */
+    --link-hover-color: #144a8c;      /* Darker hover for links */
+    --link-text-color: #5c6f91;       /* Muted blue-gray for secondary text/links */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +23,7 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #f8f9fa;
+    background-color: var(--background-color);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -16,19 +33,19 @@ body {
 }
 
 .container {
-    background: #ffffff;
+    background: var(--container-background);
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
-    border: 1px solid #e9ecef;
+    border: 1px solid var(--border-color);
 }
 
 .form-title {
     text-align: center;
     margin-bottom: 30px;
-    color: #343a40;
+    color: var(--text-color);
     font-size: 24px;
     font-weight: 600;
 }
@@ -49,7 +66,7 @@ body {
     padding: 8px 0;
     border: 2px solid transparent;
     background-color: #f1f3f5;
-    color: #495057;
+    color: var(--text-color);
     font-size: 14px;
     font-weight: 500;
     border-radius: 5px;
@@ -57,30 +74,27 @@ body {
     transition: all 0.3s ease;
 }
 
-
 .user-type-buttons .btn:hover {
-    background-color: #e9ecef;
+    background-color: var(--border-color);
 }
 
 /* Active styles */
 .user-type-buttons .btn.public.active {
-    background-color: #28a745;
+    background-color: var(--primary-color);
     color: #ffffff;
-    border-color: #28a745;
+    border-color: var(--primary-color);
 }
 
 .user-type-buttons .btn.organizer.active {
-    background-color: #fd7e14;
+    background-color: var(--secondary-color);
     color: #ffffff;
-    border-color: #fd7e14;
+    border-color: var(--secondary-color);
 }
-
-
 
 label {
     display: block;
     margin-bottom: 6px;
-    color: #495057;
+    color: var(--label-color);
     font-weight: 500;
     font-size: 14px;
 }
@@ -90,7 +104,7 @@ input[type="password"],
 input[type="text"]{
     width: 100%;
     padding: 12px 16px;
-    border: 2px solid #dee2e6;
+    border: 2px solid var(--input-border-color);
     border-radius: 6px;
     font-size: 16px;
     font-family: inherit;
@@ -101,18 +115,13 @@ input[type="text"]{
 
 input[type="email"]:focus,
 input[type="password"]:focus {
-    border-color: #0056b3;
+    border-color: var(--input-focus-border);
 }
-
-/* input[type="email"]:invalid,
-input[type="password"]:invalid {
-    border-color: #dc3545;
-} */
 
 input[type="submit"] {
     width: 100%;
     padding: 12px 16px;
-    background-color: #28a745;
+    background-color: var(--primary-color);
     color: #ffffff;
     border: none;
     border-radius: 6px;
@@ -124,24 +133,24 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #218838;
+    background-color: var(--primary-hover);
 }
 
 input[type="submit"]:active {
-    background-color: #1e7e34;
+    background-color: var(--primary-active);
 }
 
 .auth-link {
     text-align: center;
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid #e9ecef;
-    color: #6c757d;
+    border-top: 1px solid var(--border-color);
+    color: var(--link-text-color);
     font-size: 14px;
 }
 
 .auth-link a {
-    color: #28a745;
+    color: var(--link-color);
     text-decoration: none;
     font-weight: 500;
 }
@@ -157,13 +166,13 @@ input[type="submit"]:active {
 }
 
 .forgot-password a {
-    color: #6c757d;
+    color: var(--link-text-color);
     text-decoration: none;
     font-size: 12px;
 }
 
 .forgot-password a:hover {
-    color: #495057;
+    color: var(--text-color);
     text-decoration: underline;
 }
 

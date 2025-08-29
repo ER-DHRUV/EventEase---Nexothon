@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to update submit button color based on user type
     function updateSubmitBtnColor(type) {
       if (type === 'public') {
-        submitBtn.style.backgroundColor = '#28a745'; // green
-        submitBtn.style.borderColor = '#28a745';
+        submitBtn.style.backgroundColor = '#4a90e2'; // green
+        submitBtn.style.borderColor = '#4a90e2';
       } else if (type === 'organizer') {
-        submitBtn.style.backgroundColor = '#fd7e14'; // orange
-        submitBtn.style.borderColor = '#fd7e14';
+        submitBtn.style.backgroundColor = '#0b1e47'; // orange
+        submitBtn.style.borderColor = '#0b1e47';
       }
     }
   
