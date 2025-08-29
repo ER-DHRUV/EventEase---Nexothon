@@ -6,7 +6,9 @@ const User = require("../models/user");
 // const cloudinary = require("cloudinary").v2;
 router.route("/")
 .get((req, res) => {
-    res.send("home");
+    let id = req.params;
+    let user = 
+    res.render("includes/topsection")
 });
 
 module.exports=router;
