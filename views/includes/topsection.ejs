@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top section</title>
+    <link rel="stylesheet" href="/public/css/includes/topsection.css">
+
+    
+</head>
+<body>
+
+    <header class="header">
+        <div>
+            <div class="logo-section">
+                <div class="logo"></div>
+                <div class="logo-text">EventEase</div>
+            </div>
+            <div class="tagline">Smart Event Booking & Management with AI Recommendations</div>
+        </div>
+    
+        <div class="profile-section">
+            <div class="profile-icon" title="Profile">👤</div>
+            <h4 class="username">
+                <%= user.name %>
+            </h4>
+        </div>
+        <div class="logout-modal-overlay" id="logoutOverlay">
+            <div class="logout-modal">
+                <p>Are you sure you want to logout?</p>
+                <a href="/logout" class="logout-link">Logout</a>
+            </div>
+        </div>
+    
+    
+    </header>
+    <script>
+        // Logout modal toggle
+const logoutOverlay = document.getElementById('logoutOverlay');
+
+// Close modal when clicking outside the modal box
+logoutOverlay.addEventListener('click', (e) => {
+    if (e.target === logoutOverlay) {
+        logoutOverlay.style.display = 'none';
+    }
+});
+
+
+document.getElementById('nav-menu').addEventListener('click', function () {
+    document.getElementById('navLinks').classList.toggle('show');
+    
+    
+    if (navLinks.classList.contains('show')) {
+        menuToggle.style.display = 'none'; // Hide menuToggle
+    } else {
+        menuToggle.style.display = 'block'; // Show menuToggle
+    }
+});
+
+    </script>
+</body>
+</html>
