@@ -12,3 +12,42 @@ org.addEventListener("click", () => {
     console.log(roleInput.value);
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const publicBtn = document.querySelector('.btn.public');
+    const organizerBtn = document.querySelector('.btn.organizer');
+    const userTypeInput = document.getElementById('userType');
+    const submitBtn = document.getElementById('submit');
+  
+    if (!publicBtn || !organizerBtn || !userTypeInput || !submitBtn) return;
+  
+    // Function to update submit button color based on user type
+    function updateSubmitBtnColor(type) {
+      if (type === 'public') {
+        submitBtn.style.backgroundColor = '#28a745'; // green
+        submitBtn.style.borderColor = '#28a745';
+      } else if (type === 'organizer') {
+        submitBtn.style.backgroundColor = '#fd7e14'; // orange
+        submitBtn.style.borderColor = '#fd7e14';
+      }
+    }
+  
+    // Initialize submit button color based on default value
+    updateSubmitBtnColor(userTypeInput.value);
+  
+    publicBtn.addEventListener('click', () => {
+      userTypeInput.value = 'public';
+      publicBtn.classList.add('active');
+      organizerBtn.classList.remove('active');
+      updateSubmitBtnColor('public');
+      // console.log('User type selected: public');
+    });
+  
+    organizerBtn.addEventListener('click', () => {
+      userTypeInput.value = 'organizer';
+      organizerBtn.classList.add('active');
+      publicBtn.classList.remove('active');
+      updateSubmitBtnColor('organizer');
+      // console.log('User type selected: organizer');
+    });
+  });
+  

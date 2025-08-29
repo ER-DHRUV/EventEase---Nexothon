@@ -86,7 +86,8 @@ label {
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"]{
     width: 100%;
     padding: 12px 16px;
     border: 2px solid #dee2e6;
@@ -103,10 +104,10 @@ input[type="password"]:focus {
     border-color: #0056b3;
 }
 
-input[type="email"]:invalid,
+/* input[type="email"]:invalid,
 input[type="password"]:invalid {
     border-color: #dc3545;
-}
+} */
 
 input[type="submit"] {
     width: 100%;
