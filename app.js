@@ -6,9 +6,8 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const app = express();
 // const { isLoggedIn } = require("./midleware.js");
-const User = require(".//models/user");
-const Event = require(".//models/event");
-// const e = require("express");
+const User = require("./models/user");
+const Event = require("./models/event");
 const public = require("./routes/public");
 const organizer = require("./routes/organizer");
 const auth = require("./routes/auth");
@@ -18,6 +17,13 @@ const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
 const fileupload = require("express-fileupload");
+// Enable file upload middleware if needed
+app.use(
+  fileupload({
+    useTempFiles: true,
+    tempFileDir: "/tmp/",
+  })
+);
 
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -26,7 +32,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 const mongoose = require("mongoose");
-// ...existing code...
+
 mongoose
   .connect("mongodb://localhost:27017/EventEase", {})
   .then(() => {
@@ -35,26 +41,11 @@ mongoose
   .catch((err) => {
     console.error("MongoDB connection error:", err);
   });
-// ✅ Middleware to check login
 
-// app.get("/", (req, res) => {
-//   res.render("login", { error: undefined }); // Pass error as undefined
-// });
-// app.use(
-//   fileupload({
-//     useTempFiles: true,
-//     tempFileDir: "/tmp/",
-//   })
-// );
-
+// Routes
 app.use("/public", public);
-
 app.use("/organizer", organizer);
-app.use("/", auth);
-
-// app.get("/", (req, res) => {
-//     res.send("home");
-// });
+app.use("/login", auth);
 
 app.listen(3000, () => {
   console.log("Welcome to our website");
