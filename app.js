@@ -1,0 +1,47 @@
+require('dotenv').config();
+const express = require("express");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const app = express();
+const { isLoggedIn } = require("./midleware.js");
+const User = require(".//models/user");
+const Event = require(".//models/event");
+const e = require("express");
+const eventRoute = require("./routes/event");
+const userRoute = require("./routes/user");
+const ejsMate = require('ejs-mate');
+app.engine('ejs', ejsMate);
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
+
+const fileupload = require("express-fileupload");
+
+app.set("view engine", "ejs");
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(cookieParser());
+const mongoose = require("mongoose");
+// ...existing code...
+mongoose
+  .connect("mongodb://localhost:27017/createuser", {})
+  .then(() => {
+    console.log("MongoDB connected");
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
+  });
+// ✅ Middleware to check login
+
+// app.get("/", (req, res) => {
+//   res.render("login", { error: undefined }); // Pass error as undefined
+// });
+
+
+
+app.listen(3000, () => {
+  console.log("Welcome to our website");
+});
