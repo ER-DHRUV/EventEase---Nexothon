@@ -45,7 +45,7 @@ mongoose
 // Routes
 app.use("/public", public);
 app.use("/organizer", organizer);
-app.use("/login", auth);
+app.use("/", auth);
 
 app.listen(3000, () => {
   console.log("Welcome to our website");
