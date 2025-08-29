@@ -6,11 +6,12 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const app = express();
 // const { isLoggedIn } = require("./midleware.js");
-// const User = require(".//models/user");
-// const Event = require(".//models/event");
+const User = require(".//models/user");
+const Event = require(".//models/event");
 // const e = require("express");
-// const eventRoute = require("./routes/event");
-// const userRoute = require("./routes/user");
+const public = require("./routes/public");
+const organizer = require("./routes/organizer");
+const auth = require("./routes/auth");
 const ejsMate = require('ejs-mate');
 app.engine('ejs', ejsMate);
 const methodOverride = require('method-override');
@@ -39,8 +40,21 @@ mongoose
 // app.get("/", (req, res) => {
 //   res.render("login", { error: undefined }); // Pass error as undefined
 // });
+// app.use(
+//   fileupload({
+//     useTempFiles: true,
+//     tempFileDir: "/tmp/",
+//   })
+// );
 
+app.use("/public", public);
 
+app.use("/organizer", organizer);
+app.use("/", auth);
+
+// app.get("/", (req, res) => {
+//     res.send("home");
+// });
 
 app.listen(3000, () => {
   console.log("Welcome to our website");
