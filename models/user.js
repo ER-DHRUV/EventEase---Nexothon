@@ -20,9 +20,9 @@ const userSchema = new mongoose.Schema({
         enum:['public','organizer'],
         default:'public'
     },
-    modileNo:{
+    mobileNo:{
         type:String,
-        required:true
+
     }
 
 });
